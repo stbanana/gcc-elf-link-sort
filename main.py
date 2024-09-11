@@ -46,7 +46,7 @@ def process_elf_file(elf_file, output_directory):
     )
 
     # 表头
-    header = ['地址(0x)', '属性', '类型', '节段', '大小(0x)', '名称']
+    header = ['地址', '属性', '类型', '节段', '大小', '名称']
 
     # 列宽度
     column_widths = [12, 6, 7, 20, 12, 40]
@@ -60,11 +60,11 @@ def process_elf_file(elf_file, output_directory):
         column_widths = [14, 8, 6, 21, 14, 40]
         for sym in symbols:
             f.write(
-                f"{sym.address:<{column_widths[0]}}"
+                f"0x{sym.address:<{column_widths[0] - 2}}"
                 f"{sym.attribute:<{column_widths[1]}}"
                 f"{sym.type:<{column_widths[2]}}"
                 f"{sym.section:<{column_widths[3]}}"
-                f"{sym.size:<{column_widths[4]}}"
+                f"0x{sym.size:<{column_widths[4] - 2}}"
                 f"{sym.name:<{column_widths[5]}}\n"
             )
 
