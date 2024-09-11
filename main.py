@@ -49,13 +49,15 @@ def process_elf_file(elf_file, output_directory):
     header = ['地址(0x)', '属性', '类型', '节段', '大小(0x)', '名称']
 
     # 列宽度
-    column_widths = [14, 4, 4, 14, 10, 40]
+    column_widths = [12, 6, 7, 20, 12, 40]
 
     # 打印表头和排序后的符号表到文件
     with open(sorted_symbol_file, 'w', encoding='utf-8') as f:
         f.write(header_comment)
-        f.write(''.join([f"{header[i]:<{column_widths[i]}}" for i in range(len(header))]) + "\n")
+        header_line = ''.join([f"{header[i]:<{column_widths[i]}}" for i in range(len(header))])
+        f.write(header_line + "\n")
 
+        column_widths = [14, 8, 6, 21, 14, 40]
         for sym in symbols:
             f.write(
                 f"{sym.address:<{column_widths[0]}}"

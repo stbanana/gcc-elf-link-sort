@@ -1,3 +1,3 @@
 #用于PY打包成EXE
-Pyinstaller -F -w main.py
-Pyinstaller -F main.py
+Pyinstaller -F -i v2-baec.ico -w main.py
+Pyinstaller -F -i v2-baec.ico main.py
