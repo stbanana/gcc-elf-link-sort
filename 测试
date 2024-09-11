@@ -1,0 +1,3 @@
+#用于PY打包成EXE
+Pyinstaller -F -w main.py
+Pyinstaller -F main.py
